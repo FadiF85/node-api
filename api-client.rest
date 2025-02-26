@@ -3,4 +3,4 @@
 #GET http://localhost:5000/api/v1/bootcamps/3
 #POST http://localhost:5000/api/v1/bootcamps
 #PUT http://localhost:5000/api/v1/bootcamps/6
-#DELETE http://localhost:5000/api/v1/bootcamps/6
+DELETE http://localhost:5000/api/v1/bootcamps/6
