@@ -4,7 +4,8 @@
   "description": "Backend API",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "set NODE_ENV=production && node server",
+    "dev": "nodemon server"
   },
   "author": "Fadi Findakly",
   "license": "MIT",
