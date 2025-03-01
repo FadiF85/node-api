@@ -1,6 +1,6 @@
 #GET http://localhost:5000
-GET http://localhost:5000/api/v1/bootcamps
-#GET http://localhost:5000/api/v1/bootcamps/67c3571d4a8f4e5ba9eed476
+#GET http://localhost:5000/api/v1/bootcamps
+GET http://localhost:5000/api/v1/bootcamps/67c2960aca4d0738f6ec629arr
 #POST http://localhost:5000/api/v1/bootcamps
 #PUT http://localhost:5000/api/v1/bootcamps/6
 #DELETE http://localhost:5000/api/v1/bootcamps/67c357464a8f4e5ba9eed47a

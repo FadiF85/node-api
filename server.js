@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 // const logger = require("./middleware/logger");
 const morgan = require("morgan");
+const errorHandler = require("./middleware/error");
 
 // Load env vars
 dotenv.config( {path: "./config/config.env"});
@@ -27,10 +28,11 @@ if (process.env.NODE_ENV === "development") {
     app.use(morgan("dev"));
 }
 
-
 // Mount routes
 app.use("/api/v1/bootcamps", bootcamps);
 
+// Error handler (it has to be called after the routes have been mounted
+app.use(errorHandler);
 
 const server = app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`));
 
