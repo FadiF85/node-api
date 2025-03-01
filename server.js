@@ -12,6 +12,9 @@ connectDB();
 
 // Initiate app
 const app = express();
+// Body parser
+app.use(express.json());
+
 // Set the port
 const PORT = process.env.PORT || 5000;
 
