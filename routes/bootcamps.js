@@ -9,6 +9,7 @@ router.route("/")
     .post(createBootcamp);
 
 router.route("/:id")
+    .get(getBootcamp)
     .post(createBootcamp)
     .put(updateBootcamp)
     .delete(deleteBootcamp);
