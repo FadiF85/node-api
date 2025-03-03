@@ -1,29 +1,26 @@
 #GET http://localhost:5000
-GET http://localhost:5000/api/v1/bootcamps
-#GET http://localhost:5000/api/v1/bootcamps/67c2960aca4d0738f6ec629a77885995
+#GET http://localhost:5000/api/v1/bootcamps
+#GET http://localhost:5000/api/v1/bootcamps/67c2960aca4d0738f6ec629a
 #POST http://localhost:5000/api/v1/bootcamps
 #PUT http://localhost:5000/api/v1/bootcamps/6
 #DELETE http://localhost:5000/api/v1/bootcamps/67c357464a8f4e5ba9eed47a
 
 
-#POST http://localhost:5000/api/v1/bootcamps
-#Content-Type: application/json
-#
-#{
-#  "name": "Devcentral Bootcamp",
-#  "description": "Is coding your passion? Codemasters will give you the skills and the tools to become the best developer possible. We specialize in front end and full stack web development",
-#  "website": "https://devcentral.com",
-#  "phone": "(444) 444-4444",
-#  "email": "enroll@devcentral.com",
-#  "address": "45 Upper College Rd Kingston RI 02881",
-#  "careers": [
-#    "Mobile Development",
-#    "Web Development",
-#    "Data Science",
-#    "Business"
-#  ],
-#  "housing": false,
-#  "jobAssistance": true,
-#  "jobGuarantee": true,
-#  "acceptGi": true
-#}
+POST http://localhost:5000/api/v1/bootcamps
+Content-Type: application/json
+
+{
+  "name": "New Bootcamp, Is coding your passion? Codemasters will give you the skills and the tools to become the best developer possible. We specialize in front end and full stack web development",
+  "description": "Is coding your passion? Codemasters will give you the skills and the tools to become the best developer possible. We specialize in front end and full stack web development",
+  "website": "https://devcentral.com",
+  "phone": "",
+  "email": "",
+  "address": "45 Upper College Rd Kingston RI 02881",
+  "careers": [
+    "movies"
+  ],
+  "housing": false,
+  "jobAssistance": true,
+  "jobGuarantee": true,
+  "acceptGi": true
+}
