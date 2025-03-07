@@ -19,7 +19,10 @@
 // Sort
 #GET http://localhost:5000/api/v1/bootcamps?sort=avgCost&select=name,avgCost
 #GET http://localhost:5000/api/v1/bootcamps?sort=-avgCost&select=name,avgCost
-GET http://localhost:5000/api/v1/bootcamps?sort=-avgCost&select=name,avgCost&housing=true
+#GET http://localhost:5000/api/v1/bootcamps?sort=-avgCost&select=name,avgCost&housing=true
+
+# Pagination
+#GET http://localhost:5000/api/v1/bootcamps?limit=2&select=name&page=1
 
 #POST http://localhost:5000/api/v1/bootcamps
 #Content-Type: application/json

@@ -12,8 +12,8 @@ exports.getBootcamps = async (req, res, next) => {
         // Copy req.query
         const reqQuery = { ...req.query };
 
-        // Fields to exclude
-        const excludedFields = ["select", "sort"];
+        // Fields to exclude (To avoid trying to match those fields with the document's fields <Bootcamp fields> )
+        const excludedFields = ["select", "sort", "page", "limit"];
 
         // Loop over excludedFields and delete them from the reqQuery
         excludedFields.forEach(excludedField => delete reqQuery[excludedField]);
@@ -44,6 +44,13 @@ exports.getBootcamps = async (req, res, next) => {
             // Default sort by date
             query = query.sort("-createdAt");
         }
+
+        // Pagination
+        const page = parseInt(req.query.page, 10) || 1;
+        const limit = parseInt(req.query.limit, 10) || 100;
+        const skip = (page - 1) * limit;
+
+        query = query.skip(skip).limit(limit);
 
         // Execute the query
         const bootcamps = await query;
