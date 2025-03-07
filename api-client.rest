@@ -6,24 +6,27 @@
 #DELETE http://localhost:5000/api/v1/bootcamps/67c51715edc1188a6d2bf860
 
 
-POST http://localhost:5000/api/v1/bootcamps
-Content-Type: application/json
+#POST http://localhost:5000/api/v1/bootcamps
+#Content-Type: application/json
+#
+#{
+#  "name": "Devcentral Bootcamp",
+#  "description": "Is coding your passion? Codemasters will give you the skills and the tools to become the best developer possible. We specialize in front end and full stack web development",
+#  "website": "https://devcentral.com",
+#  "phone": "(444) 444-4444",
+#  "email": "enroll@devcentral.com",
+#  "address": "615 Rymal Road East, Hamilton, ON L8W 0B6",
+#  "careers": [
+#    "Mobile Development",
+#    "Web Development",
+#    "Data Science",
+#    "Business"
+#  ],
+#  "housing": false,
+#  "jobAssistance": true,
+#  "jobGuarantee": true,
+#  "acceptGi": true
+#}
 
-{
-  "name": "Devcentral Bootcamp",
-  "description": "Is coding your passion? Codemasters will give you the skills and the tools to become the best developer possible. We specialize in front end and full stack web development",
-  "website": "https://devcentral.com",
-  "phone": "(444) 444-4444",
-  "email": "enroll@devcentral.com",
-  "address": "615 Rymal Road East, Hamilton, ON L8W 0B6",
-  "careers": [
-    "Mobile Development",
-    "Web Development",
-    "Data Science",
-    "Business"
-  ],
-  "housing": false,
-  "jobAssistance": true,
-  "jobGuarantee": true,
-  "acceptGi": true
-}
+
+GET http://localhost:5000/api/v1/bootcamps/radius/L8W0B6/150
