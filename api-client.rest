@@ -12,6 +12,15 @@
 # Filter by careers
 #GET http://localhost:5000/api/v1/bootcamps?careers[in]=Mobile Development
 
+// Select
+#GET http://localhost:5000/api/v1/bootcamps?select=name
+#GET http://localhost:5000/api/v1/bootcamps?select=name,description
+
+// Sort
+#GET http://localhost:5000/api/v1/bootcamps?sort=avgCost&select=name,avgCost
+#GET http://localhost:5000/api/v1/bootcamps?sort=-avgCost&select=name,avgCost
+GET http://localhost:5000/api/v1/bootcamps?sort=-avgCost&select=name,avgCost&housing=true
+
 #POST http://localhost:5000/api/v1/bootcamps
 #Content-Type: application/json
 #

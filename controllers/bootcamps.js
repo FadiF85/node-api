@@ -8,7 +8,18 @@ const ErrorResponse = require("../utils/errorResponse");
 exports.getBootcamps = async (req, res, next) => {
     try {
         let query;
-        let queryString = JSON.stringify(req.query);
+
+        // Copy req.query
+        const reqQuery = { ...req.query };
+
+        // Fields to exclude
+        const excludedFields = ["select", "sort"];
+
+        // Loop over excludedFields and delete them from the reqQuery
+        excludedFields.forEach(excludedField => delete reqQuery[excludedField]);
+
+        // Create operators
+        let queryString = JSON.stringify(reqQuery);
         // gt => $gt (greater than)
         // gte => $gte (greater than or equal)
         // lt => $gt (less than)
@@ -16,8 +27,25 @@ exports.getBootcamps = async (req, res, next) => {
         // in => $in (in array)
         queryString = queryString.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
 
+        // Find resources for the passed query
         query = Bootcamp.find(JSON.parse(queryString));
 
+        // Select
+        if (req.query.select) {
+            const selectedFields = req.query.select.split(",").join(" ");
+            // Mongoose queries documentation: https://mongoosejs.com/docs/queries.html
+            query = query.select(selectedFields);
+        }
+
+        // Sort
+        if (req.query.sort) {
+            query = query.sort(req.query.sort); // Mongoose queries documentation: https://mongoosejs.com/docs/queries.html
+        } else {
+            // Default sort by date
+            query = query.sort("-createdAt");
+        }
+
+        // Execute the query
         const bootcamps = await query;
 
         res.status(200).json({success: true, count: bootcamps.length, data: bootcamps});
