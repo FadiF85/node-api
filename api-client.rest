@@ -5,6 +5,12 @@
 #PUT http://localhost:5000/api/v1/bootcamps/6
 #DELETE http://localhost:5000/api/v1/bootcamps/67c51715edc1188a6d2bf860
 
+# Filter by city
+#GET http://localhost:5000/api/v1/bootcamps?location.city=Toronto
+# Filter by avgCost using MongoDB operators: https://www.mongodb.com/docs/manual/reference/operator/query-comparison/
+#GET http://localhost:5000/api/v1/bootcamps?avgCost[lt]=10000
+# Filter by careers
+#GET http://localhost:5000/api/v1/bootcamps?careers[in]=Mobile Development
 
 #POST http://localhost:5000/api/v1/bootcamps
 #Content-Type: application/json
@@ -29,4 +35,4 @@
 #}
 
 
-GET http://localhost:5000/api/v1/bootcamps/radius/L8W0B6/150
+#GET http://localhost:5000/api/v1/bootcamps/radius/L8W0B6/150

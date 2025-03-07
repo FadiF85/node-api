@@ -92,6 +92,10 @@ const BootcampSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    avgCost: {
+        type: Number,
+        required: false
+    },
     createdAt: {
         type: Date,
         default: Date.now,
