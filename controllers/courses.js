@@ -25,3 +25,25 @@ exports.getCourses = async (req, res, next) => {
         next(err);
     }
 }
+
+
+// @desc Get a single course
+// @route GET /api/v1/courses/:id
+// @access public
+exports.getCourse = async (req, res, next) => {
+    try {
+        const course = await Course.findById(req.params.id).populate({
+            path: "bootcamp",
+            select: "name description"
+        });
+
+        // In case there is no user with the passed ID
+        if (!course) {
+            return next(new ErrorResponse(`Course not found with the id of ${req.params.id}`, 404));
+        }
+
+        res.status(200).json({success: true, data: course});
+    } catch (err) {
+        next(err);
+    }
+}
