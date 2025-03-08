@@ -3,7 +3,7 @@
 #GET http://localhost:5000/api/v1/bootcamps/67c2960aca4d0738f6ec629a
 #POST http://localhost:5000/api/v1/bootcamps
 #PUT http://localhost:5000/api/v1/bootcamps/6
-#DELETE http://localhost:5000/api/v1/bootcamps/67c51715edc1188a6d2bf860
+DELETE http://localhost:5000/api/v1/bootcamps/5d725a037b292f5f8ceff787
 
 # Filter by city
 #GET http://localhost:5000/api/v1/bootcamps?location.city=Toronto

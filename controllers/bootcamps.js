@@ -135,12 +135,16 @@ exports.updateBootcamp = async (req, res, next) => {
 // @access private
 exports.deleteBootcamp = async (req, res, next) => {
     try {
-        const bootcamp = await Bootcamp.findByIdAndDelete(req.params.id);
+        const bootcamp = await Bootcamp.findById(req.params.id);
 
         // In case there is no user with the passed ID
         if (!bootcamp) {
             return next(new ErrorResponse(`Bootcamp not found with the id of ${req.params.id}`, 404));
         }
+
+        // Remove the bootcamp
+        // We do it this way to trigger the pre/remove hook that applies the cascade/delete
+        await bootcamp.deleteOne();
 
         res.status(200).json({success: true, data: bootcamp});
     } catch (err) {
