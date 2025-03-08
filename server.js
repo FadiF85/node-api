@@ -21,6 +21,7 @@ const PORT = process.env.PORT || 5000;
 
 // Route files
 const bootcamps = require("./routes/bootcamps");
+const courses = require("./routes/courses");
 
 // Use the middlewares
 // app.use(logger);
@@ -30,6 +31,7 @@ if (process.env.NODE_ENV === "development") {
 
 // Mount routes
 app.use("/api/v1/bootcamps", bootcamps);
+app.use("/api/v1/courses", courses);
 
 // Error handler (it has to be called after the routes have been mounted
 app.use(errorHandler);

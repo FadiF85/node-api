@@ -2,7 +2,20 @@ const express = require('express');
 const router = express.Router();
 
 // Import the controller functions
-const {getBootcamps, getBootcamp, createBootcamp, updateBootcamp, deleteBootcamp, getBootcampsInRadius} = require("../controllers/bootcamps");
+const {
+    getBootcamps,
+    getBootcamp,
+    createBootcamp,
+    updateBootcamp,
+    deleteBootcamp,
+    getBootcampsInRadius
+} = require("../controllers/bootcamps");
+
+// Include other models routes
+const courseRouter = require("./courses");
+
+// Re-route into other resource routes
+router.use("/:bootcampId/courses", courseRouter);
 
 router.route("/radius/:postalcode/:distance").get(getBootcampsInRadius);
 

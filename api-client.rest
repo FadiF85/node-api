@@ -22,7 +22,7 @@
 #GET http://localhost:5000/api/v1/bootcamps?sort=-avgCost&select=name,avgCost&housing=true
 
 # Pagination
-GET http://localhost:5000/api/v1/bootcamps?limit=2&select=name&page=1
+#GET http://localhost:5000/api/v1/bootcamps?limit=2&select=name&page=1
 
 #POST http://localhost:5000/api/v1/bootcamps
 #Content-Type: application/json
@@ -48,3 +48,8 @@ GET http://localhost:5000/api/v1/bootcamps?limit=2&select=name&page=1
 
 
 #GET http://localhost:5000/api/v1/bootcamps/radius/L8W0B6/150
+
+
+#-------------- Courses ----------------
+#GET http://localhost:5000/api/v1/courses
+GET http://localhost:5000/api/v1/bootcamps/5d725a037b292f5f8ceff787/courses
