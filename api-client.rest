@@ -52,5 +52,17 @@
 
 #-------------- Courses ----------------
 #GET http://localhost:5000/api/v1/courses
-GET http://localhost:5000/api/v1/courses/5d725a4a7b292f5f8ceff789
+#GET http://localhost:5000/api/v1/courses/5d725a4a7b292f5f8ceff789
 #GET http://localhost:5000/api/v1/bootcamps/5d725a037b292f5f8ceff787/courses
+
+POST http://localhost:5000/api/v1/bootcamps/5d713995b721c3bb38c1f5d0/courses
+Content-Type: application/json
+
+{
+  "title": "Java Spring Boot Development",
+  "description": "API development course..",
+  "weeks": 7,
+  "tuition": 12000,
+  "minimumSkill": "advanced",
+  "scholarhipsAvailable": true
+}

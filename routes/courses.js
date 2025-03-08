@@ -3,15 +3,13 @@ const express = require('express');
 const router = express.Router({mergeParams: true});
 
 // Import the controller functions
-const {getCourses, getCourse} = require("../controllers/courses");
+const {getCourses, getCourse, createCourse} = require("../controllers/courses");
 
 router.route("/")
-    .get(getCourses);
+    .get(getCourses)
+    .post(createCourse);
 
 router.route("/:id")
-    .get(getCourse)
-//     .post(createBootcamp)
-//     .put(updateBootcamp)
-//     .delete(deleteBootcamp);
+    .get(getCourse);
 
 module.exports = router;

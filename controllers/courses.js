@@ -1,5 +1,6 @@
 const ErrorResponse = require("../utils/errorResponse");
 const Course = require("../models/Course");
+const Bootcamp = require("../models/Bootcamp");
 
 // @desc Get courses
 // @route GET /api/v1/courses
@@ -43,6 +44,28 @@ exports.getCourse = async (req, res, next) => {
         }
 
         res.status(200).json({success: true, data: course});
+    } catch (err) {
+        next(err);
+    }
+}
+
+
+// @desc Create a new single course
+// @route POST /api/v1/bootcamps
+// @access private
+exports.createCourse = async (req, res, next) => {
+    try {
+        req.body.bootcamp = req.params.bootcampId;
+
+        // Check if the bootcamp exists
+        const bootcamp = Bootcamp.findById(req.params.bootcampId);
+        if (!bootcamp) {
+            return next(new ErrorResponse(`Bootcamp not found with the id of ${req.params.bootcampId}`, 404));
+        }
+
+        const course = await Course.create(req.body);
+
+        res.status(201).json({success: true, data: course});
     } catch (err) {
         next(err);
     }
