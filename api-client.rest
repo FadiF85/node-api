@@ -55,15 +55,17 @@
 #GET http://localhost:5000/api/v1/courses/5d725a4a7b292f5f8ceff789
 #GET http://localhost:5000/api/v1/bootcamps/5d725a037b292f5f8ceff787/courses
 
-#POST http://localhost:5000/api/v1/bootcamps/5d713995b721c3bb38c1f5d0/courses
+
 #PUT http://localhost:5000/api/v1/courses/67cbd37eceb833a5ee84c860
+#DELETE http://localhost:5000/api/v1/courses/67cc9d6b14e29d0291c02c74
+POST http://localhost:5000/api/v1/bootcamps/5d713995b721c3bb38c1f5d0/courses
+Content-Type: application/json
 
-#Content-Type: application/json
-#
-#{
-#  "title": "Java Spring Boot Development I",
-#  "weeks": 9,
-#  "tuition": 13500
-#}
-
-DELETE http://localhost:5000/api/v1/courses/67cbd37eceb833a5ee84c860
+{
+        "title": "Front End Web Development",
+        "description": "This course will provide you with all of the essentials to become a successful frontend web developer. You will learn to master HTML, CSS and front end JavaScript, along with tools like Git, VSCode and front end frameworks like Vue",
+        "weeks": 8,
+        "tuition": 13000,
+        "minimumSkill": "intermediate",
+        "scholarhipsAvailable": true
+}
