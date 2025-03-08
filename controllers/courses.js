@@ -70,3 +70,48 @@ exports.createCourse = async (req, res, next) => {
         next(err);
     }
 }
+
+
+// @desc Update a single course
+// @route PUT /api/v1/courses/:id
+// @access private
+exports.updateCourse = async (req, res, next) => {
+    try {
+        const course = await Course.findByIdAndUpdate(req.params.id, req.body, {
+            new: true,
+            runValidators: true
+        });
+
+        // In case there is no user with the passed ID
+        if (!course) {
+            return next(new ErrorResponse(`Course not found with the id of ${req.params.id}`, 404));
+        }
+
+        res.status(200).json({success: true, data: course});
+    } catch (err) {
+        next(err);
+    }
+}
+
+
+// @desc Delete a single course
+// @route DELETE /api/v1/courses/:id
+// @access private
+exports.deleteCourse = async (req, res, next) => {
+    try {
+        const course = await Course.findById(req.params.id);
+
+        // In case there is no user with the passed ID
+        if (!course) {
+            return next(new ErrorResponse(`Course not found with the id of ${req.params.id}`, 404));
+        }
+
+        // Remove the bootcamp
+        // We do it this way to trigger the pre/remove hook that applies the cascade/delete
+        await course.deleteOne();
+
+        res.status(200).json({success: true, data: course});
+    } catch (err) {
+        next(err);
+    }
+}

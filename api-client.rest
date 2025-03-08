@@ -55,14 +55,15 @@
 #GET http://localhost:5000/api/v1/courses/5d725a4a7b292f5f8ceff789
 #GET http://localhost:5000/api/v1/bootcamps/5d725a037b292f5f8ceff787/courses
 
-POST http://localhost:5000/api/v1/bootcamps/5d713995b721c3bb38c1f5d0/courses
-Content-Type: application/json
+#POST http://localhost:5000/api/v1/bootcamps/5d713995b721c3bb38c1f5d0/courses
+#PUT http://localhost:5000/api/v1/courses/67cbd37eceb833a5ee84c860
 
-{
-  "title": "Java Spring Boot Development",
-  "description": "API development course..",
-  "weeks": 7,
-  "tuition": 12000,
-  "minimumSkill": "advanced",
-  "scholarhipsAvailable": true
-}
+#Content-Type: application/json
+#
+#{
+#  "title": "Java Spring Boot Development I",
+#  "weeks": 9,
+#  "tuition": 13500
+#}
+
+DELETE http://localhost:5000/api/v1/courses/67cbd37eceb833a5ee84c860
