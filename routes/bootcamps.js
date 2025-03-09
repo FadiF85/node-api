@@ -8,7 +8,8 @@ const {
     createBootcamp,
     updateBootcamp,
     deleteBootcamp,
-    getBootcampsInRadius
+    getBootcampsInRadius,
+    bootcampPhotoUpload
 } = require("../controllers/bootcamps");
 
 // Include other models routes
@@ -28,5 +29,8 @@ router.route("/:id")
     .post(createBootcamp)
     .put(updateBootcamp)
     .delete(deleteBootcamp);
+
+router.route("/:id/photo")
+    .put(bootcampPhotoUpload);
 
 module.exports = router;

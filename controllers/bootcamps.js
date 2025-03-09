@@ -1,6 +1,7 @@
 const geocoder = require("../utils/geocoder.js");
 const Bootcamp = require("../models/Bootcamp");
 const ErrorResponse = require("../utils/errorResponse");
+const path = require("path");
 
 // @desc Get all bootcamps
 // @route GET /api/v1/bootcamps
@@ -175,6 +176,58 @@ exports.getBootcampsInRadius = async (req, res, next) => {
         });
 
         res.status(200).json({success: true, count: bootcamps.length, data: bootcamps});
+    } catch (err) {
+        next(err);
+    }
+}
+
+
+// @desc Upload photo for bootcamp
+// @route PUT /api/v1/bootcamps/:id/photo
+// @access private
+exports.bootcampPhotoUpload = async (req, res, next) => {
+    try {
+        const bootcamp = await Bootcamp.findById(req.params.id);
+
+        // In case there is no user with the passed ID
+        if (!bootcamp) {
+            return next(new ErrorResponse(`Bootcamp not found with the id of ${req.params.id}`, 404));
+        }
+
+        if (!req.files) {
+            return next(new ErrorResponse("Please upload a file.", 400));
+        }
+
+        const file = req.files.file;
+        console.log("FILE: ", file);
+
+        // Make sure the file is an image
+        if (!file.mimetype.startsWith("image/")) {
+            return next(new ErrorResponse("Please upload an image file.", 400));
+        }
+
+        // Check file size
+        if (file.size > process.env.MAX_FILE_SIZE) {
+            return next(new ErrorResponse(`Please upload an image less than ${process.env.MAX_FILE_SIZE}`, 400));
+        }
+
+        // Create a custom file name
+        file.name = `photo_${Date.now()}${path.parse(file.name).ext}`;
+
+        // Upload the file
+        file.mv(`${process.env.FILE_UPLOAD_PATH}/${file.name}`, async (error) => {
+            if (error) {
+                console.error(error);
+                return next(new ErrorResponse("Something went wrong.", 500));
+            }
+
+            await Bootcamp.findByIdAndUpdate(req.params.id, {
+                photo: file.name
+            });
+
+            res.status(200).json({success: true, data: bootcamp});
+        });
+
     } catch (err) {
         next(err);
     }
