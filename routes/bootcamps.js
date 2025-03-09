@@ -1,5 +1,7 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const Bootcamp = require("../models/Bootcamp");
+const advancedResults = require("../middleware/advancedResults");
 
 // Import the controller functions
 const {
@@ -21,7 +23,7 @@ router.use("/:bootcampId/courses", courseRouter);
 router.route("/radius/:postalcode/:distance").get(getBootcampsInRadius);
 
 router.route("/")
-    .get(getBootcamps)
+    .get(advancedResults(Bootcamp, "courses"), getBootcamps)
     .post(createBootcamp);
 
 router.route("/:id")

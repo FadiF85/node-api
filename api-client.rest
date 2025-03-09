@@ -51,7 +51,7 @@
 
 
 #-------------- Courses ----------------
-#GET http://localhost:5000/api/v1/courses
+GET http://localhost:5000/api/v1/courses?select=title,tuition
 #GET http://localhost:5000/api/v1/courses/5d725a4a7b292f5f8ceff789
 #GET http://localhost:5000/api/v1/bootcamps/5d725a037b292f5f8ceff787/courses
 
@@ -72,12 +72,12 @@
 
 # Bootcamp photo upload
 #PUT http://localhost:5000/api/v1/bootcamps/5d725a037b292f5f8ceff787/photo
-PUT http://localhost:5000/api/v1/bootcamps/5d725a037b292f5f8ceff787/photo
-Content-Type: multipart/form-data; boundary=WebStormBoundary
-
---WebStormBoundary
-Content-Disposition: form-data; name="file"; filename="bg-image.jpg"
-Content-Type: image/jpeg
-
-< C:\Users\finda\Desktop\Apps\bg-image.jpg
---WebStormBoundary--
+#PUT http://localhost:5000/api/v1/bootcamps/5d725a037b292f5f8ceff787/photo
+#Content-Type: multipart/form-data; boundary=WebStormBoundary
+#
+#--WebStormBoundary
+#Content-Disposition: form-data; name="file"; filename="bg-image.jpg"
+#Content-Type: image/jpeg
+#
+#< C:\Users\finda\Desktop\Apps\bg-image.jpg
+#--WebStormBoundary--
