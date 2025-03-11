@@ -15,7 +15,10 @@ exports.register = async (req, res, next) => {
             password, role
         });
 
-        res.status(201).json({success: true, data: user});
+        // Create token
+        const token = user.getSignedJWTToken();
+
+        res.status(201).json({success: true, token, data: user});
     } catch (err) {
         next(err);
     }
