@@ -24,6 +24,7 @@ const PORT = process.env.PORT || 5000;
 // Route files
 const bootcamps = require("./routes/bootcamps");
 const courses = require("./routes/courses");
+const auth = require("./routes/auth");
 
 // Use the middlewares
 // app.use(logger);
@@ -39,6 +40,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // Mount routes
 app.use("/api/v1/bootcamps", bootcamps);
 app.use("/api/v1/courses", courses);
+app.use("/api/v1/auth", auth);
 
 // Error handler (it has to be called after the routes have been mounted
 app.use(errorHandler);

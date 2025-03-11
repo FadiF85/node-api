@@ -32,7 +32,7 @@
 #  "description": "Is coding your passion? Codemasters will give you the skills and the tools to become the best developer possible. We specialize in front end and full stack web development",
 #  "website": "https://devcentral.com",
 #  "phone": "(444) 444-4444",
-#  "email": "enroll@devcentral.com",
+#  "email": "enroll@mail.com",
 #  "address": "615 Rymal Road East, Hamilton, ON L8W 0B6",
 #  "careers": [
 #    "Mobile Development",
@@ -51,7 +51,7 @@
 
 
 #-------------- Courses ----------------
-GET http://localhost:5000/api/v1/courses?select=title,tuition
+#GET http://localhost:5000/api/v1/courses?select=title,tuition
 #GET http://localhost:5000/api/v1/courses/5d725a4a7b292f5f8ceff789
 #GET http://localhost:5000/api/v1/bootcamps/5d725a037b292f5f8ceff787/courses
 
@@ -81,3 +81,16 @@ GET http://localhost:5000/api/v1/courses?select=title,tuition
 #
 #< C:\Users\finda\Desktop\Apps\bg-image.jpg
 #--WebStormBoundary--
+
+
+
+#-------------- Authentication ----------------
+POST http://localhost:5000/api/v1/auth/register
+Content-Type: application/json
+
+{
+        "name": "Emma Eric",
+        "email": "emma@mail.com",
+        "password": "PA123456",
+        "role": "publisher"
+}
