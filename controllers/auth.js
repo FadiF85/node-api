@@ -15,10 +15,7 @@ exports.register = async (req, res, next) => {
             password, role
         });
 
-        // Create token
-        const token = user.getSignedJWTToken();
-
-        res.status(201).json({success: true, token, data: user});
+        sendTokenResponse(user, 200, res);
     } catch (err) {
         next(err);
     }
@@ -51,11 +48,23 @@ exports.login = async (req, res, next) => {
             return next(new ErrorResponse(`Invalid credentials`, 401));
         }
 
-        // Create token
-        const token = await user.getSignedJWTToken();
-
-        res.status(201).json({success: true, token});
+        sendTokenResponse(user, 200, res);
     } catch (err) {
         next(err);
     }
+}
+
+
+// Get token from model, create cookie and send response
+// This function returns a token and a cookie, and it's up to the client what to use for authentication
+const sendTokenResponse = (user, statusCode, res) => {
+    // Create token
+    const token = user.getSignedJWTToken();
+
+    const options = {
+        expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000),
+        httpOnly: true
+    };
+
+    res.status(statusCode).cookie('token', token, options).json({success: true, token});
 }

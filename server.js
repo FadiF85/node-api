@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const errorHandler = require("./middleware/error");
 const fileUpload = require("express-fileupload");
 const path = require("path");
+const cookieParser = require("cookie-parser");
 
 // Load env vars
 dotenv.config( {path: "./config/config.env"});
@@ -17,6 +18,8 @@ connectDB();
 const app = express();
 // Body parser
 app.use(express.json());
+// Cookie parser
+app.use(cookieParser());
 
 // Set the port
 const PORT = process.env.PORT || 5000;
