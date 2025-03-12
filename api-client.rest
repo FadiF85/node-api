@@ -95,10 +95,64 @@
 #        "role": "publisher"
 #}
 
-POST http://localhost:5000/api/v1/auth/login
+#POST http://localhost:5000/api/v1/auth/login
+#Content-Type: application/json
+#
+#{
+#       "email": "emma@mail.com",
+#       "password": "PA123456"
+#
+
+#POST http://localhost:5000/api/v1/bootcamps
+#Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Y2ZhNzVmNjE1MjM5ZGZlZmIzY2JiNSIsImlhdCI6MTc0MTY2Nzg5NSwiZXhwIjoxNzQ0MjU5ODk1fQ.SOlPbWfq0neLX0JNSLfS7XbWi_nAiFqvETSQHa5EE6A
+#Content-Type: application/json
+#
+#{
+#  "name": "Testing Bootcamp1",
+#  "description": "Is coding your passion? Codemasters will give you the skills and the tools to become the best developer possible. We specialize in front end and full stack web development",
+#  "website": "https://devcentral.com",
+#  "phone": "(444) 444-4444",
+#  "email": "enroll@mail.com",
+#  "address": "615 Rymal Road East, Hamilton, ON L8W 0B6",
+#  "careers": [
+#    "Mobile Development",
+#    "Web Development",
+#    "Data Science",
+#    "Business"
+#  ],
+#  "housing": false,
+#  "jobAssistance": true,
+#  "jobGuarantee": true,
+#  "acceptGi": true
+#}
+
+
+
+#POST http://localhost:5001/api/v1/auth/login
+#Content-Type: application/json
+#
+#{
+#       "email": "emma@mail.com",
+#       "password": "PA123456"
+#}
+
+#POST http://localhost:5001/api/v1/auth/login
+#Content-Type: application/json
+#
+#{
+#       "email": "emma@mail.com",
+#       "password": "PA123456"
+#}
+
+POST http://localhost:5001/api/v1/bootcamps/67cfc0d86e7cf33f07b05a53/courses
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Y2ZhNzVmNjE1MjM5ZGZlZmIzY2JiNSIsImlhdCI6MTc0MTczOTkwNywiZXhwIjoxNzQ0MzMxOTA3fQ.sjm46aBqtgsvldV4sn-0kdomXYw_400wJSCUinTwD1s
 Content-Type: application/json
 
 {
-       "email": "emma@mail.com",
-       "password": "PA123456"
+        "title": "Testing Course",
+        "description": "This course will provide you with all of the essentials to become a successful frontend web developer. You will learn to master HTML, CSS and front end JavaScript, along with tools like Git, VSCode and front end frameworks like Vue",
+        "weeks": 8,
+        "tuition": 13000,
+        "minimumSkill": "intermediate",
+        "scholarhipsAvailable": true
 }

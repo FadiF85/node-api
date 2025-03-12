@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Bootcamp = require("../models/Bootcamp");
 const advancedResults = require("../middleware/advancedResults");
+const { protect } = require("../middleware/auth");
 
 // Import the controller functions
 const {
@@ -24,13 +25,12 @@ router.route("/radius/:postalcode/:distance").get(getBootcampsInRadius);
 
 router.route("/")
     .get(advancedResults(Bootcamp, "courses"), getBootcamps)
-    .post(createBootcamp);
+    .post(protect, createBootcamp);
 
 router.route("/:id")
     .get(getBootcamp)
-    .post(createBootcamp)
-    .put(updateBootcamp)
-    .delete(deleteBootcamp);
+    .put(protect, updateBootcamp)
+    .delete(protect, deleteBootcamp);
 
 router.route("/:id/photo")
     .put(bootcampPhotoUpload);
