@@ -31,3 +31,12 @@ exports.protect = async (req, res, next) => {
         return next(new ErrorResponse("Invalid token.", 400));
     }
 }
+
+exports.authorize = (authorizedRoles) => {
+    return (req, res, next) => {
+        if (!authorizedRoles.includes(req.user.role)) {
+            return next(new ErrorResponse(`The role of -${req.user.role}- is not authorized to access this route.`, 403));
+        }
+        next();
+    }
+}

@@ -144,8 +144,8 @@
 #       "password": "PA123456"
 #}
 
-#POST http://localhost:5001/api/v1/bootcamps/67cfc0d86e7cf33f07b05a53/courses
-#Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Y2ZhNzVmNjE1MjM5ZGZlZmIzY2JiNSIsImlhdCI6MTc0MTczOTkwNywiZXhwIjoxNzQ0MzMxOTA3fQ.sjm46aBqtgsvldV4sn-0kdomXYw_400wJSCUinTwD1s
+#POST http://localhost:5001/api/v1/bootcamps/5d725a037b292f5f8ceff787/courses
+#Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDBkZjYwZWE0Y2U3MzUzNTFkOWQxZCIsImlhdCI6MTc0MTc0MTk1NiwiZXhwIjoxNzQ0MzMzOTU2fQ.GYYIIEMLk1NgTw2-1uLrlB0Sf8eNq_fQ--DH4mbvqYs
 #Content-Type: application/json
 #
 #{
