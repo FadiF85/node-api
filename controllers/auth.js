@@ -54,6 +54,19 @@ exports.login = async (req, res, next) => {
     }
 }
 
+// @desc Get current logged-in user
+// @route GET /api/v1/auth/get-logged-in-user
+// @access private
+exports.getLoggedInUser = async (req, res, next) => {
+    try {
+        const user = await User.findById(req.user.id);
+
+        res.status(200).json({success: true, data: user});
+    } catch (err) {
+        next(err);
+    }
+}
+
 
 // Get token from model, create cookie and send response
 // This function returns a token and a cookie, and it's up to the client what to use for authentication

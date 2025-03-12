@@ -144,15 +144,15 @@
 #       "password": "PA123456"
 #}
 
-POST http://localhost:5001/api/v1/bootcamps/67cfc0d86e7cf33f07b05a53/courses
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Y2ZhNzVmNjE1MjM5ZGZlZmIzY2JiNSIsImlhdCI6MTc0MTczOTkwNywiZXhwIjoxNzQ0MzMxOTA3fQ.sjm46aBqtgsvldV4sn-0kdomXYw_400wJSCUinTwD1s
-Content-Type: application/json
-
-{
-        "title": "Testing Course",
-        "description": "This course will provide you with all of the essentials to become a successful frontend web developer. You will learn to master HTML, CSS and front end JavaScript, along with tools like Git, VSCode and front end frameworks like Vue",
-        "weeks": 8,
-        "tuition": 13000,
-        "minimumSkill": "intermediate",
-        "scholarhipsAvailable": true
-}
+#POST http://localhost:5001/api/v1/bootcamps/67cfc0d86e7cf33f07b05a53/courses
+#Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Y2ZhNzVmNjE1MjM5ZGZlZmIzY2JiNSIsImlhdCI6MTc0MTczOTkwNywiZXhwIjoxNzQ0MzMxOTA3fQ.sjm46aBqtgsvldV4sn-0kdomXYw_400wJSCUinTwD1s
+#Content-Type: application/json
+#
+#{
+#        "title": "Testing Course",
+#        "description": "This course will provide you with all of the essentials to become a successful frontend web developer. You will learn to master HTML, CSS and front end JavaScript, along with tools like Git, VSCode and front end frameworks like Vue",
+#        "weeks": 8,
+#        "tuition": 13000,
+#        "minimumSkill": "intermediate",
+#        "scholarhipsAvailable": true
+#}
