@@ -156,3 +156,27 @@
 #        "minimumSkill": "intermediate",
 #        "scholarhipsAvailable": true
 #}
+
+
+POST http://localhost:5001/api/v1/bootcamps
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDBkZjYwZWE0Y2U3MzUzNTFkOWQxZCIsImlhdCI6MTc0MTc0MTk1NiwiZXhwIjoxNzQ0MzMzOTU2fQ.GYYIIEMLk1NgTw2-1uLrlB0Sf8eNq_fQ--DH4mbvqYs
+Content-Type: application/json
+
+{
+  "name": "AWS Bootcamp Advanced 2",
+  "description": "Is coding your passion? Codemasters will give you the skills and the tools to become the best developer possible. We specialize in front end and full stack web development",
+  "website": "https://devcentral.com",
+  "phone": "(444) 444-4444",
+  "email": "enroll@mail.com",
+  "address": "615 Rymal Road East, Hamilton, ON L8W 0B6",
+  "careers": [
+    "Mobile Development",
+    "Web Development",
+    "Data Science",
+    "Business"
+  ],
+  "housing": false,
+  "jobAssistance": true,
+  "jobGuarantee": true,
+  "acceptGi": true
+}

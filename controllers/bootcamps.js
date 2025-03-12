@@ -37,6 +37,17 @@ exports.getBootcamp = async (req, res, next) => {
 // @access private
 exports.createBootcamp = async (req, res, next) => {
     try {
+        // Add the user to the request body
+        req.body.user = req.user.id;
+
+        // Get the Bootcamp of the logged-in user
+        const bootcamp = await Bootcamp.findOne({ user: req.body.user });
+
+        // Check if the user is a publisher and has already published a Bootcamp (publishers are allowed to create a single Bootcamp)
+        if (bootcamp && req.user.role !== "admin") {
+            return next(new ErrorResponse(`User of a publisher role is allowed to publish a single bootcamp only, and you already have a published bootcamp`, 403));
+        }
+
         const data = await Bootcamp.create(req.body);
         res.status(201).json({success: true, data: data});
     } catch (err) {
